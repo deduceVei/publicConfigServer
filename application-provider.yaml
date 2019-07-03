@@ -50,24 +50,6 @@ mybatis:
   type-aliases-package: com.deduce.providerconfig.model
   config-location: classpath:mybatis/mybatis-config.xml
 
-
-#actuator端口
-#http://localhost:9003/monitor/health
-management:
-  endpoint:
-    health:
-      #显示健康具体信息  默认不会显示详细信息
-      show-details: always
-  endpoints:
-    web:
-      #修改访问路径  2.0之前默认是/   2.0默认是 /actuator  可以通过这个属性值修改
-      base-path: /monitor
-      exposure:
-        #开放所有页面节点  默认只开启了health、info两个节点
-        include: '*'
-  server:
-    port: 9003
-
 eureka:
   client:
     #将自己注册到这些位置
