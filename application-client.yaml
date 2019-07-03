@@ -4,7 +4,7 @@ spring:
     - dev
 ---
 server: 
-  port: 3306
+  port: 3366
 spring:
   profiles: dev
   application: 
@@ -15,7 +15,7 @@ eureka:
       defaultZone:http://localhost:8101/eureka/
 ---
 server: 
-  port: 3305
+  port: 3355
 spring:
   profiles: test
   application: 
