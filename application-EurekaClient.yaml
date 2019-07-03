@@ -4,7 +4,7 @@ spring:
 
 ---
 server:
-  port: 8103
+  port: 81113
 
 spring:
   profiles: dev
@@ -48,7 +48,7 @@ peer2:
 
 ---
 server:
-  port: 8104
+  port: 81114
 
 spring:
   profiles: test
