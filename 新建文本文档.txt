@@ -1,0 +1,8 @@
+provider 
+	test  80444
+	dev  80333
+
+
+eureka
+	test 81114
+	dev 81113

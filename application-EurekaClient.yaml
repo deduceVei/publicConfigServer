@@ -1,0 +1,90 @@
+spring:
+  profiles:
+    active: dev
+
+---
+server:
+  port: 8103
+
+spring:
+  profiles: dev
+  application:
+    name: miscroService-EurekaService-config
+
+#http://eureka1:8101/
+#springcloud中eureka的默认region是us-east-1，一个region下可以有多个zone。
+eureka:
+  instance:
+    #使用ip来进行注册true,false为使用hostname
+    prefer-ip-address: true
+    #此服务端的实例名称，与hosts文件中的名称无关
+    hostname: eureka111
+  client:
+    #以下两个在集群才为true
+    #是否注册自身到server注册中心-只有客户端才需要注册
+    register-with-eureka: true
+    #false表示自己就是服务中心，维护，而不需要去检索服务-是否与其他的server进行通信，获取注册信息
+    fetch-registry: true
+    #配置这个eureka server注册中心所属的region，默认值us-east-1
+    #    region: zone1
+    #    ##与eruka交互的地址,查询服务和注册服务
+    #
+    #    #region1内的所有zone,提取第一个作为自己的zone
+    #    availability-zones:
+    #      zone2: http://eureka-zone2:8102/eureka/
+    #      zone1: http://eureka-zone1:8101/eureka/
+    #      #region1内的所有其它zone的注册中心
+    #与服务中心交互的地址-通过此地址去查询服务和注册服务
+    service-url:
+      #写ip和host名(hosts文件的名字，而非此处hostName)都可以
+      defaultZone: http://eureka2:${peer2.server.port}/eureka/
+      #defaultZone: http://127.0.0.1:${peer2.server.port}/eureka/
+      #zone1: http://eureka-zone1:8101/eureka/
+
+peer2:
+  server:
+    host: eureka2
+    port: 8102
+
+---
+server:
+  port: 8104
+
+spring:
+  profiles: test
+  application:
+    name: miscroService-EurekaService
+
+#http://eureka1:8101/
+#springcloud中eureka的默认region是us-east-1，一个region下可以有多个zone。
+eureka:
+  instance:
+    #使用ip来进行注册true,false为使用hostname
+    prefer-ip-address: true
+    #此服务端的实例名称，与hosts文件中的名称无关
+    hostname: eureka111
+  client:
+    #以下两个在集群才为true
+    #是否注册自身到server注册中心-只有客户端才需要注册
+    register-with-eureka: true
+    #false表示自己就是服务中心，维护，而不需要去检索服务-是否与其他的server进行通信，获取注册信息
+    fetch-registry: true
+    #配置这个eureka server注册中心所属的region，默认值us-east-1
+    #    region: zone1
+    #    ##与eruka交互的地址,查询服务和注册服务
+    #
+    #    #region1内的所有zone,提取第一个作为自己的zone
+    #    availability-zones:
+    #      zone2: http://eureka-zone2:8102/eureka/
+    #      zone1: http://eureka-zone1:8101/eureka/
+    #      #region1内的所有其它zone的注册中心
+    #与服务中心交互的地址-通过此地址去查询服务和注册服务
+    service-url:
+      #写ip和host名(hosts文件的名字，而非此处hostName)都可以
+      defaultZone: http://eureka2:${peer2.server.port}/eureka/
+      #defaultZone: http://127.0.0.1:${peer2.server.port}/eureka/
+      #zone1: http://eureka-zone1:8101/eureka/
+peer2:
+  server:
+    host: eureka2
+    port: 8102
