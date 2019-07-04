@@ -56,7 +56,7 @@ eureka:
       defaultZone: http://${peer1.server.host}:${peer1.server.port}/eureka/, http://${peer2.server.host}:${peer2.server.port}/eureka/
   instance:
     #自定义的服务名称-status(UP)后的标识符
-    instance-id: provider-8003-hystrix
+    instance-id: provider-config-github配置文件读取
     ip-address: true
 peer1:
   server:
@@ -125,7 +125,7 @@ eureka:
       defaultZone: http://${peer1.server.host}:${peer1.server.port}/eureka/, http://${peer2.server.host}:${peer2.server.port}/eureka/
   instance:
     #自定义的服务名称-status(UP)后的标识符
-    instance-id: provider-8003-hystrix
+    instance-id: provider-config-github配置文件读取
     ip-address: true
 peer1:
   server:
